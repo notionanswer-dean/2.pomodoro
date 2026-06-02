@@ -35,6 +35,16 @@ body {
   margin-bottom: 24px;
 }
 
+/* 현재 시각 표시 */
+.clock {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 16px;
+}
+
 /* 남은 시간 표시 */
 .timer {
   font-size: 6rem;

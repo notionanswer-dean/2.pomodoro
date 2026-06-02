@@ -16,9 +16,19 @@ let intervalId = null; // setInterval 식별자 (null이면 정지 상태)
 
 // DOM 요소 참조
 const timerEl = document.getElementById("timer");
+const clockEl = document.getElementById("clock");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
 const resetBtn = document.getElementById("resetBtn");
+
+// 현재 시각을 "HH:MM:SS" 형식으로 화면에 출력
+function renderClock() {
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mm = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  clockEl.textContent = `${hh}:${mm}:${ss}`;
+}
 
 // 남은 시간을 "MM:SS" 형식으로 화면에 출력
 function renderTimer() {
@@ -74,3 +84,7 @@ window.addEventListener("storage", (event) => {
 
 // 초기 화면 표시
 renderTimer();
+renderClock();
+
+// 현재 시각을 1초마다 갱신
+setInterval(renderClock, 1000);
